@@ -1,0 +1,169 @@
+aside {
+	float: right;
+	background-color: #eaedf2;
+	padding: 10px;
+	margin-right: 2%;
+	border-radius: 10px;
+	width: 20%;
+}
+
+aside a {
+	color: #514242;
+}
+
+aside p:first-child{
+	color: #474849;
+	font-weight: bold;
+}
+
+@media only screen and (max-width: 570px) {
+	aside {
+		float: none;
+		width: 95%;
+		margin: auto;
+		margin-bottom: 10px;
+	}
+}
+
+#main {
+	background-color: #eaedf2;
+	margin-left: 2%;
+	border-radius: 5px;
+	width: 74%;
+	word-break: break-word;
+}
+
+@media only screen and (max-width: 570px) {
+	#main {
+		width: 95%;
+		margin: 0 auto;
+	}
+}
+
+
+#messages{
+	background-color: #eaedf2;
+	margin: 0 auto;
+	border-radius: 5px;
+	width: 95%;
+}
+#messages .profile {
+	width: 100px;
+}
+
+#main td{
+	padding: 8px;
+}
+
+@media only screen and (max-width: 570px) {
+	#main td {
+		padding: 4px;
+	}
+}
+
+#messages td{
+	padding: 8px;
+}
+
+#messages .body {
+	padding: 3%;
+	vertical-align: top;
+}
+
+#main tr {
+	border-bottom: 1px solid #999ea8;
+}
+
+#messages tr {
+	border-bottom: 1px solid #999ea8;
+}
+
+#main tr:last-child {
+	border-bottom: none;
+}
+
+#messages tr:last-child {
+	border-bottom: none;
+}
+
+.topic a{
+	color: black ;
+	font-size: 18px;
+	font-weight: bold;
+	display: block;
+}
+
+@media only screen and (max-width: 570px) {
+	.topic a {
+		font-weight: normal;
+		font-size: 14px;
+	}
+}
+
+.topic i{
+	font-size: 25px;
+	float: left;
+	padding-right: 5px; 
+}
+
+.form{
+	padding: 10px;
+}
+
+.info span{
+	display: block;
+	text-align: center;
+}
+.info span:first-child{
+	font-weight: bold;
+	color: #474849;
+}
+
+@media only screen and (max-width: 570px) {
+	.info span {
+		font-weight: normal;
+		font-size: 12px;
+		width: 57px;
+	}
+}
+.create-link {
+	margin-left: 2%;
+	margin-bottom: 70px;
+}
+
+
+@media only screen and (max-width: 570px) {
+	.create-link{
+		margin-left: 2.5%;
+	}
+}
+
+.create-link-messages {
+	margin-left: 2.5%;
+	margin-bottom: 50px;
+}
+
+.avatar {
+	text-align: center;
+	font-size: 60px;
+	color: #88c3c3;
+	background-color: #336666;
+}
+
+.profile {
+	background-color: #c3cad8; 
+	vertical-align: top;
+	font-weight: bold;
+}
+
+.nav {
+	margin: 2.5%; 
+}
+
+.nav span {
+	margin-right: 4px;
+}
+
+.nav a {
+	color: #2b4570;
+}

@@ -11,9 +11,8 @@
 |
 */
 
-
-use App\Topic;
-use App\Subtopic;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'RootController@root');
 

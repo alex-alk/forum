@@ -91,3 +91,27 @@ Route::resource('/topic.subtopic.message', 'MessagesController');
 //    now()->addHours(4),
 //    ['invitation' => 12345, 'answer' => 'yes']
 //);
+
+/** Route shortcut */
+// Returns resources/views/welcome.blade.php
+//Route::view('/', 'welcome');
+
+/** List routes */
+//artisan route:list
+
+/** Generate api controller */
+//php artisan make:controller MySampleResourceController --api
+
+
+//To cache your routes file, you need to be using all controller, redirect, view, and
+//resource routes (no route closures). If your app isn’t using any route closures, you can
+//run php artisan route:cache and Laravel will serialize the results of your routes/*
+//files.
+
+/** Set up csrf in ajax */
+
+//$.ajaxSetup({
+//headers: {
+//    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//}
+//});

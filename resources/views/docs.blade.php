@@ -37,5 +37,33 @@ View partials:
 </a>
 
 //--------------------------------
-Injecting a service class into bloade:
+Injecting a service class into blade:
 @inject('analytics', 'App\Services\Analytics')
+
+//---------------------------------------
+Binding a custom Blade directive in a service provider
+public function boot()
+{
+    Blade::directive('ifGuest', function () {
+        return "<?php if (auth()->guest()): ?>";
+    });
+}
+
+Creating a Blade directive with parameters
+// Binding
+Blade::directive('newlinesToBr', function ($expression) {
+    return "<?php echo nl2br({$expression}); ?>";
+});
+// In use
+<p>@newlinesToBr($message->body)</p>
+
+//-------------------------------------------
+Testing blade templates
+public function test_list_page_shows_all_events()
+{
+    $event1 = factory(Event::class)->create();
+    $response = $this->get("events/{ $event->id }");
+    $response->assertViewHas('event', function ($event) use ($event1) {
+        return $event->id === $event1->id;
+    });
+}

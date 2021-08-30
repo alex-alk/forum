@@ -67,3 +67,5 @@ public function test_list_page_shows_all_events()
         return $event->id === $event1->id;
     });
 }
+//-------------------------------
+if mass assignment is enabled, you can use Contact::create($request->only('name', 'email'));

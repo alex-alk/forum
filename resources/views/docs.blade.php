@@ -69,3 +69,23 @@ public function test_list_page_shows_all_events()
 }
 //-------------------------------
 if mass assignment is enabled, you can use Contact::create($request->only('name', 'email'));
+//---------------------------
+Delete multiple items:
+Contact::where('updated_at', '<', now()->subYear())->delete();
+//-----------------------------------
+Eloquent scopes:
+public function scopePopular($query)
+{
+    return $query->where('votes', '>', 100);
+}
+using it: $users = User::popular()->orderBy('created_at')->get();
+
+Casting columns:
+class Contact
+{
+    protected $casts = [
+        'vip' => 'boolean',
+        'children_names' => 'array',
+        'birthday' => 'date',
+    ];
+}

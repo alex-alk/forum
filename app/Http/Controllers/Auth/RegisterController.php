@@ -49,13 +49,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'not_in:admin'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed']],
             [
-                'unique' => 'Adresa de e-mail e deja in baza de date.',
-                'min' => 'Parola trebuie sa aibe mai mult de 8 caractere.',
-                'confirmed' => 'Parolele nu corespund.'
+                'not_in' => 'Not allowed.',
+                'unique' => 'This email address is already registered.',
+                'min' => 'Password must contain at least 8 characters.',
+                'confirmed' => 'Passwords do not match.'
         ]);
     }
 

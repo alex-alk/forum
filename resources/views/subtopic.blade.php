@@ -18,16 +18,16 @@
 	                    <form action="/topic/{{ $topic->id }}/subtopic/{{ $subtopic->id }}" method="POST">
 	                        @csrf
 	                        @method('DELETE')
-	                        <button type="submit" class="btn btn-danger btn-sm">Șterge</button>
+	                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
 	                    </form>
 	                @endif
 				</td>
-	            <td class="info"><span>Mesaje</span><span>{{ count($subtopic->messages) }}</span></td>
-	            <td class="info"><span>Vizualizări</span><span>{{ $subtopic->views }}</span></td>
+	            <td class="info"><span>Messages</span><span>{{ count($subtopic->messages) }}</span></td>
+	            <td class="info"><span>Views</span><span>{{ $subtopic->views }}</span></td>
 				</tr>
 			@endforeach
 		</table>
-		<a href="/topic/{{ $topic->id }}/subtopic/create" class="create-link btn btn-primary btn-sm">Creează subiect</a>
+		<a href="/topic/{{ $topic->id }}/subtopic/create" class="create-link btn btn-primary btn-sm">Create subject</a>
 		@isset($message)
 		 {{ $message }}
 		@endisset
@@ -37,11 +37,11 @@
 	<form action="/topic/{{ $topic->id }}/subtopic" method="POST" class="form">
 		@csrf
 		<div class="form-group">
-			<label for="title">Titlul subiectului: </label>
+			<label for="title">Subject title: </label>
 			<input type="text" name="title" class="form-control" id="title">
 		</div>
 		<input type="hidden" name="topic" value="{{ $topic->id }}">
-		<button type="submit" class="btn btn-primary">Creează</button>
+		<button type="submit" class="btn btn-primary">Create</button>
 	</form>
 	@endsection
 @endif

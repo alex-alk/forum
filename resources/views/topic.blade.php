@@ -9,7 +9,7 @@
 			@csrf
 			@method('PATCH')
 			<div class="form-group">
-				<label for="title">Titlu topic: </label>
+				<label for="title">Topic title: </label>
 				<input type="text" name="title" class="form-control" id="title" value="{{ $topic->title }}">
 			</div>
 			<button type="submit" class="btn btn-primary">Edit</button>
@@ -18,10 +18,10 @@
 		<form action="/topic" method="POST" class="form">
 			@csrf
 			<div class="form-group">
-				<label for="title">Titlu topic: </label>
+				<label for="title">Topic title: </label>
 				<input type="text" name="title" class="form-control" id="title">
 			</div>
-			<button type="submit" class="btn btn-primary">Creează</button>
+			<button type="submit" class="btn btn-primary">Create</button>
 		</form>
 	@endif
 @endsection

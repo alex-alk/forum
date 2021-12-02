@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Forum pentru case')
+@section('title', 'Forum')
 
 @section('content')
     <aside>
-        <p>Subiecte recente</p>
+        <p>Recent subjects</p>
         @foreach($recentSubtopics as $recentSubtopic)
         <p><a href="/topic/{{ $recentSubtopic->topic_id }}/subtopic/{{ $recentSubtopic->id }}/message">{{ $recentSubtopic->title }}</a></p>
     @endforeach
@@ -20,20 +20,20 @@
                     <form action="/topic/{{ $topic->id }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">Șterge</button>
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                     </form>
                     <form action="/topic/{{ $topic->id }}/edit" method="GET">
                         <button type="submit" class="btn btn-warning btn-sm">Edit</button>
                     </form>
                 @endif
             </td>
-            <td class="info"><span>Subiecte</span><span>{{ count($topic->subtopics) }}</span></td>
-            <td class="info"><span>Mesaje</span><span>{{ count($topic->messages) }}</span></td>
+            <td class="info"><span>Subjects</span><span>{{ count($topic->subtopics) }}</span></td>
+            <td class="info"><span>Messages</span><span>{{ count($topic->messages) }}</span></td>
         </tr>
         @endforeach
     </table>
     @if (Illuminate\Support\Facades\Auth::check() &&  
         Illuminate\Support\Facades\Auth::user()->name == 'admin')
-        <div class="create-link"><a href="/topic/create" class="btn btn-primary">Creează topic</a></div>
+        <div class="create-link"><a href="/topic/create" class="btn btn-primary">Create topic</a></div>
     @endif
 @endsection

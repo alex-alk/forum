@@ -89,3 +89,33 @@ class Contact
         'birthday' => 'date',
     ];
 }
+
+//--------------------
+Working with collections:
+$collection = collect([1, 2, 3]);
+$odds = $collection->reject(function ($item) {
+    return $item % 2 === 0;
+});
+$multiplied = $collection->map(function ($item) {
+    return $item * 10;
+});
+$sum = $collection
+->filter(function ($item) {
+    return $item % 2 == 0;
+})->map(function ($item) {
+    return $item * 10;
+})->sum();
+//--------------------
+Hide properties:
+class Contact extends Model
+{
+public $hidden = ['password', 'remember_token']; ...
+
+Filter a collection:
+$donors = $user->contacts->filter(function ($contact) {
+    return $contact->status == 'donor';
+});
+or: $donors = $user->contacts()->where('status', 'donor')->get();
+
+// create model, migration and controller:
+> php artisan make:model Abc -mr

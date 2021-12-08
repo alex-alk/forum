@@ -2,17 +2,19 @@
 
 namespace Database\Factories;
 
+use App\Subtopic;
 use App\Topic;
+use App\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class TopicFactory extends Factory
+class SubtopicFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Topic::class;
+    protected $model = Subtopic::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +24,9 @@ class TopicFactory extends Factory
     public function definition()
     {
         return [
+            'user_id' => User::factory(),
             'title' => $this->faker->sentence,
+            'topic_id' => Topic::factory()
         ];
     }
 }

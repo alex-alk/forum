@@ -2,18 +2,22 @@
 
 namespace Tests\Unit;
 
+use Database\Seeders\UsersTableSeeder;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testBasicTest()
+    use RefreshDatabase;
+
+    public function test_users_can_be_created()
     {
-        $this->assertTrue(true);
+        // Run the DatabaseSeeder...
+        //$this->seed();
+
+        // Run a specific seeder...
+        $this->seed();
+        $this->assertDatabaseCount('users', 5);
+        // ...
     }
 }

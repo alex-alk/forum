@@ -14,7 +14,7 @@
         <tr>
             <td class="topic">
                 <i class="fa fa-comments"></i>
-                <a href="/topic/{{ $topic->id }}">{{ $topic->title }}</a>
+                <a href="{{ route('topics.show', [$topic->id]) }}">{{ $topic->title }}</a>
                 @if (Illuminate\Support\Facades\Auth::check() &&  
                     Illuminate\Support\Facades\Auth::user()->name == 'admin')
                     <form action="/topic/{{ $topic->id }}" method="POST">

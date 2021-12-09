@@ -7,7 +7,7 @@ use App\Topic;
 use App\User;
 use Illuminate\Database\Seeder;
 
-class UsersTableSeeder extends Seeder
+class TopicsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()
+        Topic::factory()
             ->count(5)
             ->create();
     }

@@ -17,11 +17,11 @@ class Topic extends Model
 
     public function subtopics()
     {
-    	return $this->hasMany('App\Models\Subtopic');
+    	return $this->hasMany(Subtopic::class);
     }
 
     public function messages()
     {
-    	return $this->hasMany('App\Models\Message');
+    	return $this->hasManyThrough(Message::class, Subtopic::class);
     }
 }

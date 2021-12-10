@@ -2,25 +2,34 @@
 
 namespace App\Models;
 
+use Eloquent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @mixin Eloquent
+ * @property int id
+ * @property int views
+ * @property Topic topic
+ */
 class Subtopic extends Model
 {
     use HasFactory;
 
-    public function topics()
+    public function topic(): BelongsTo
     {
-    	return $this->belongsTo('App\Models\Topic');
+    	return $this->belongsTo(Topic::class);
     }
 
-    public function messages()
+    public function messages(): HasMany
     {
-    	return $this->hasMany('App\Models\Message');
+    	return $this->hasMany(Message::class);
     }
 
-    public function user()
+    public function user(): BelongsTo
     {
-    	return $this->belongsTo('App\Models\User');
+    	return $this->belongsTo(User::class);
     }
 }

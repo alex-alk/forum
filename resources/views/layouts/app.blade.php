@@ -79,13 +79,19 @@
         <main class="py-4">
             <div class="nav">
                 <span><a href="/">Home</a></span> 
-                @if(isset($navtopic))
+                @if(Route::is('topics.show'))
                     <span>></span>
-                    <span><a href="/topic/{{ $topic->id }}">{{ $topic->title }}</a></span> 
+                    <span>
+                        <a href="{{ route('topics.show', [$topic->id]) }}">{{ $topic->title }}</a>
+                    </span>
                 @endif
-                @if(isset($navsubtopic))
+                @if(Route::is('subtopics.show'))
                     <span>></span>
-                    <span><a href="/topic/{{ $topic->id }}/subtopic/{{ $subtopic->id }}/message">{{ $subtopic->title }}</a></span>
+                    <span>
+                        <a href="{{ route('topics.show', [$subtopic->topic->id]) }}">{{ $subtopic->topic->title }}</a>
+                    </span>
+                    <span>></span>
+                    <span><a href="{{ route('subtopics.show', [$subtopic->id]) }}">{{ $subtopic->title }}</a></span>
                 @endif
             </div>
             @yield('content')

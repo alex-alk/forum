@@ -2,10 +2,17 @@
 
 namespace App\Models;
 
+use Eloquent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @mixin Eloquent
+ * @property int id
+ * @property string body
+ * @property User user
+ */
 class Message extends Model
 {
     use HasFactory;
@@ -14,11 +21,6 @@ class Message extends Model
     {
     	return $this->belongsTo(Subtopic::class);
 	}
-
-    public function topic(): BelongsTo
-    {
-        return $this->belongsTo(Topic::class);
-    }
 
 	public function user(): BelongsTo
     {

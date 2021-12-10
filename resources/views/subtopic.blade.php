@@ -10,7 +10,7 @@
 			@foreach($subtopics as $subtopic)
 			<tr>
 				<td class="topic">
-					<a href="/topic/{{ $topic->id }}/subtopic/{{ $subtopic->id }}/message">{{ $subtopic->title }}</a>
+					<a href="{{ route('subtopics.show', [$subtopic->id]) }}">{{ $subtopic->title }}</a>
 					<span class="under">{{ $subtopic->user->name }}</span>, 
 					<span>{{ $subtopic->created_at }}</span>
 					@if (Illuminate\Support\Facades\Auth::check() &&  

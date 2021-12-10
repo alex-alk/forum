@@ -15,7 +15,7 @@ class TopicsTableSeeder extends Seeder
     public function run()
     {
         Topic::factory()
-            ->count(5)
+            ->count(10)
             ->create();
     }
 }

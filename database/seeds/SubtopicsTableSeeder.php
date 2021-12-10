@@ -16,7 +16,7 @@ class SubtopicsTableSeeder extends Seeder
     public function run()
     {
         Subtopic::factory()
-            ->count(5)
+            ->count(10)
             ->create();
     }
 }

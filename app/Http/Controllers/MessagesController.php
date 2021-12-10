@@ -10,20 +10,9 @@ use Illuminate\Support\Facades\Auth;
 
 class MessagesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index($id1, $id2)
+    public function index()
     {
-        $subtopic = Subtopic::find($id2);
-        $navsubtopic = Subtopic::find($id2);
-        $topic = Topic::find($id1);
-        $navtopic = Topic::find($id1);
-        $subtopic->views += 1;
-        $subtopic->save();
-        return view('message', compact('subtopic', 'topic', 'navtopic', 'navsubtopic'));
+
     }
 
     /**
@@ -61,16 +50,11 @@ class MessagesController extends Controller
         return redirect("/topic/$id1/subtopic/$id2/message");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(Subtopic $subtopic)
     {
-        $message = Message::find($id);
-        return $message;
+        $subtopic->views += 1;
+        $subtopic->save();
+        return view('message', compact('subtopic'));
     }
 
     /**

@@ -24,11 +24,12 @@ class MessageFactory extends Factory
      */
     public function definition()
     {
+        /** @var Subtopic $subtopic */
+        $subtopic = Subtopic::all()->random();
         return [
-            'user_id' => User::factory(),
+            'user_id' => User::all()->random()->id,
             'body' => $this->faker->sentence,
-            'topic_id' => Topic::factory(),
-            'subtopic_id' => Subtopic::factory(),
+            'subtopic_id' => $subtopic->id,
         ];
     }
 }

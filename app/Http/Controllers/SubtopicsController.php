@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Subtopic;
 use App\Models\Topic;
-use App\Models\User;
 
 class SubtopicsController extends Controller
 {
@@ -54,17 +53,9 @@ class SubtopicsController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id1, $id2)
-    {   
-        $subtopic = Subtopic::find($id2);
-        $topic = Topic::find($id1);
-        return view('message', compact('subtopic', 'topic'));
+    public function show(Subtopic $subtopic)
+    {
+        return view('message', compact('subtopic'));
     }
 
     /**

@@ -5,8 +5,8 @@
 @section('content')
     <aside>
         <p>Recent subjects</p>
-        @foreach($recentSubtopics as $recentSubtopic)
-        <p><a href="/topic/{{ $recentSubtopic->topic_id }}/subtopic/{{ $recentSubtopic->id }}/message">{{ $recentSubtopic->title }}</a></p>
+    @foreach($recentSubtopics as $recentSubtopic)
+        <p><a href="{{ route('subtopics.show', [$recentSubtopic->id]) }}">{{ $recentSubtopic->title }}</a></p>
     @endforeach
     </aside>
     <table id="main">

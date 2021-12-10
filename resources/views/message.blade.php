@@ -19,19 +19,19 @@
 					{!! $message->body !!}
 					@if(Illuminate\Support\Facades\Auth::check() &&  
 	                    Illuminate\Support\Facades\Auth::user()->name == 'admin') 
-						<form action="/topic/{{ $topic->id }}/subtopic/{{ $subtopic->id }}/message/{{ $message->id }}" method="POST">
+						<form action="/topic/{{ $subtopic->topic->id }}/subtopic/{{ $subtopic->id }}/message/{{ $message->id }}" method="POST">
 				            @csrf
 				            @method('DELETE')
 				            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
 				        </form>
 				    @elseif (Illuminate\Support\Facades\Auth::check() &&  
 	                    Illuminate\Support\Facades\Auth::user()->name == $message->user->name)
-	                    <form action="/topic/{{ $topic->id }}/subtopic/{{ $subtopic->id }}/message/{{ $message->id }}" method="POST">
+	                    <form action="/topic/{{ $subtopic->topic->id }}/subtopic/{{ $subtopic->id }}/message/{{ $message->id }}" method="POST">
 				            @csrf
 				            @method('DELETE')
 				            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
 				        </form>
-				        <form action="/topic/{{ $topic->id }}/subtopic/{{ $subtopic->id }}/message/{{ $message->id }}/edit" method="GET">
+				        <form action="/topic/{{ $subtopic->topic->id }}/subtopic/{{ $subtopic->id }}/message/{{ $message->id }}/edit" method="GET">
 				            <button type="submit" class="btn btn-warning btn-sm">Edit</button>
 				        </form>
 				    @else
@@ -41,13 +41,13 @@
 			</tr>
 		@endforeach
 		<table>
-		<a href="/topic/{{ $topic->id }}/subtopic/{{ $subtopic->id }}/message/create" class="create-link-messages btn btn-primary btn-sm">Reply</a>
+		<a href="/topic/{{ $subtopic->topic->id }}/subtopic/{{ $subtopic->id }}/message/create" class="create-link-messages btn btn-primary btn-sm">Reply</a>
 	@endsection
 @elseif( $action == 'create')
 	@section('content')
 	    <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
 	    <script>tinymce.init({ selector:'textarea' });</script>
-		<form action="/topic/{{ $topic->id }}/subtopic/{{ $subtopic->id }}/message" method="POST" class="form">
+		<form action="/topic/{{ $subtopic->topic->id }}/subtopic/{{ $subtopic->id }}/message" method="POST" class="form">
 		@csrf
 		<div class="form-group">
 			<label for="body">Mesaj: </label>
@@ -59,7 +59,7 @@
 	@endsection
 @else
 	@section('content')
-		<form action="/topic/{{ $topic->id }}/subtopic/{{ $subtopic->id }}/message/{{ $message->id }}" method="POST" class="form">
+		<form action="/topic/{{ $subtopic->topic->id }}/subtopic/{{ $subtopic->id }}/message/{{ $message->id }}" method="POST" class="form">
 			@csrf
 			@method('PATCH')
 			<div class="form-group">

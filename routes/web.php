@@ -21,8 +21,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/topics', 'TopicsController');
-Route::resource('/topics.subtopic', 'SubtopicsController');
-Route::resource('/topics.subtopic.message', 'MessagesController');
+Route::resource('/topics.subtopics', 'SubtopicsController');
+Route::resource('/topics.subtopics.message', 'MessagesController');
 
 // route conventions: photos.index, photos.create
 // you should use regex for route matching

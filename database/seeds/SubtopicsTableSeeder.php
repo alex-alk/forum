@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Subtopic;
-use App\Topic;
-use App\User;
+
+use App\Models\Subtopic;
 use Illuminate\Database\Seeder;
 
 class SubtopicsTableSeeder extends Seeder

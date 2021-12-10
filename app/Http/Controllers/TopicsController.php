@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Topic;
-use App\Subtopic;
-use App\Message;
-use App\User;
+use App\Models\Topic;
+use App\Models\Subtopic;
+use App\Models\Message;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class TopicsController extends Controller

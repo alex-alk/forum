@@ -2,31 +2,33 @@
 
 namespace Database\Factories;
 
+use App\Models\Message;
 use App\Models\Subtopic;
 use App\Models\Topic;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class SubtopicFactory extends Factory
+class MessageFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Subtopic::class;
+    protected $model = Message::class;
 
     /**
      * Define the model's default state.
      *
      * @return array
      */
-    public function definition(): array
+    public function definition()
     {
         return [
-            'user_id' => User::all()->random()->id,
-            'title' => $this->faker->sentence,
-            'topic_id' => Topic::all()->random()->id
+            'user_id' => User::factory(),
+            'body' => $this->faker->sentence,
+            'topic_id' => Topic::factory(),
+            'subtopic_id' => Subtopic::factory(),
         ];
     }
 }

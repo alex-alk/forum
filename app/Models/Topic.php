@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Eloquent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,11 +17,11 @@ class Topic extends Model
 
     public function subtopics()
     {
-    	return $this->hasMany('App\Subtopic');
+    	return $this->hasMany('App\Models\Subtopic');
     }
 
     public function messages()
     {
-    	return $this->hasMany('App\Message');
+    	return $this->hasMany('App\Models\Message');
     }
 }

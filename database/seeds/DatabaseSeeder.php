@@ -13,6 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(SubtopicsTableSeeder::class);
+        $this->call(MessagesTableSeeder::class);
     }
 }

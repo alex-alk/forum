@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
@@ -40,11 +40,11 @@ class User extends Authenticatable
 
     public function subtopics()
     {
-        return $this->hasMany('App\Subtopic');
+        return $this->hasMany('App\Models\Subtopic');
     }
 
     public function messages()
     {
-        return $this->hasMany('App\Message');
+        return $this->hasMany('App\Models\Message');
     }
 }

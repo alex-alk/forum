@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
-use App\Subtopic;
-use App\Topic;
-use App\User;
+use App\Models\Subtopic;
+use App\Models\Topic;
+use App\Models\User;
 
 class SubtopicsController extends Controller
 {

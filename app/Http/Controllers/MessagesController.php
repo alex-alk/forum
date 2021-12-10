@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Subtopic;
-use App\Topic;
-use App\Message;
+use App\Models\Subtopic;
+use App\Models\Topic;
+use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
 
 class MessagesController extends Controller

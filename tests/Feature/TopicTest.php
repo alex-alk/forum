@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class TopicsTest extends TestCase
+class TopicTest extends TestCase
 {
     use RefreshDatabase;
 

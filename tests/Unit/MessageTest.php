@@ -15,7 +15,10 @@ class MessageTest extends TestCase
 
     public function test_it_has_an_owner()
     {
-        User::factory()->create();
+        /** @var User $user */
+        $user = User::factory()->create();
+        $this->be($user);
+
         Topic::factory()->create();
         Subtopic::factory()->create();
 

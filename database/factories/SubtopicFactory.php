@@ -6,6 +6,7 @@ use App\Models\Subtopic;
 use App\Models\Topic;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Auth;
 
 class SubtopicFactory extends Factory
 {
@@ -23,8 +24,10 @@ class SubtopicFactory extends Factory
      */
     public function definition(): array
     {
+        /** @var User $user */
+        $user = Auth::user();
         return [
-            'user_id' => User::all()->random()->id,
+            'user_id' => $user->id,
             'title' => $this->faker->sentence,
             'topic_id' => Topic::all()->random()->id
         ];

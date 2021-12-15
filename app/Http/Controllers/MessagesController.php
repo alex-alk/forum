@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Subtopic;
 use App\Models\Topic;
@@ -10,9 +11,14 @@ use Illuminate\Support\Facades\Auth;
 
 class MessagesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-
+        //
     }
 
     /**
@@ -22,32 +28,29 @@ class MessagesController extends Controller
      */
     public function create($id1, $id2)
     {
-        if(!Auth::check())
-            return redirect('/home');
         $topic = Topic::find($id1);
         $subtopic = Subtopic::find($id2);
         $action = 'create';
         return view('message', compact('topic','subtopic', 'action'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request, $id1, $id2)
+    public function store(Request $request)
     {
-        $subtopic = Subtopic::find($id2);
-        $message = new Message();
         request()->validate([
-            'body' => 'required'
+            'body' => 'required',
+            'subtopic_id' => 'required'
         ]);
+        /** @var User $user */
+        $user = Auth::user();
+
+        $subtopic = Subtopic::find($request->get('subtopic_id'));
+        $message = new Message();
+
         $message->body = request('body');
-        $message->user_id = Auth::user()->id;
-        $message->topic_id = $id1;
-        $subtopic->messages()->save($message);
-        return redirect("/topic/$id1/subtopic/$id2/message");
+        $message->user_id = $user->id;
+        $message->subtopic_id = $subtopic->id;
+        $message->save();
+        return redirect(route('subtopics.show', [$subtopic->id]));
     }
 
     public function show(Subtopic $subtopic)

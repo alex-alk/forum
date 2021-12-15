@@ -7,6 +7,7 @@ use App\Models\Subtopic;
 use App\Models\Topic;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Auth;
 
 class MessageFactory extends Factory
 {
@@ -24,10 +25,13 @@ class MessageFactory extends Factory
      */
     public function definition()
     {
+        /** @var User $user */
+        $user = Auth::user();
+
         /** @var Subtopic $subtopic */
         $subtopic = Subtopic::all()->random();
         return [
-            'user_id' => User::all()->random()->id,
+            'user_id' => $user->id,
             'body' => $this->faker->sentence,
             'subtopic_id' => $subtopic->id,
         ];

@@ -2,10 +2,15 @@
 
 namespace App\Models;
 
+use Eloquent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+
+/**
+ * @mixin Eloquent
+ * @property int id
+ */
 
 class User extends Authenticatable
 {

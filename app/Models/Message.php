@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int id
  * @property string body
  * @property User user
+ * @property int user_id
+ * @property int subtopic_id
  */
 class Message extends Model
 {

@@ -37,7 +37,9 @@ class TopicTest extends TestCase
 
     public function test_a_user_can_read_messages_that_are_associated_with_a_subtopic()
     {
-        User::factory()->create();
+        /** @var User $user */
+        $user = User::factory()->create();
+        $this->be($user);
         /** @var Subtopic $subtopic */
         $subtopic = Subtopic::factory()->create();
         /** @var Message $message */

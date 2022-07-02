@@ -17,12 +17,12 @@
                 <a href="{{ route('topics.show', [$topic->id]) }}">{{ $topic->title }}</a>
                 @if (Illuminate\Support\Facades\Auth::check() &&  
                     Illuminate\Support\Facades\Auth::user()->name == 'admin')
-                    <form action="/topic/{{ $topic->id }}" method="POST">
+                    <form action="/topics/{{ $topic->id }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                     </form>
-                    <form action="/topic/{{ $topic->id }}/edit" method="GET">
+                    <form action="/topics/{{ $topic->id }}/edit" method="GET">
                         <button type="submit" class="btn btn-warning btn-sm">Edit</button>
                     </form>
                 @endif
@@ -34,6 +34,6 @@
     </table>
     @if (Illuminate\Support\Facades\Auth::check() &&  
         Illuminate\Support\Facades\Auth::user()->name == 'admin')
-        <div class="create-link"><a href="/topic/create" class="btn btn-primary">Create topic</a></div>
+        <div class="create-link"><a href="/topics/create" class="btn btn-primary">Create topic</a></div>
     @endif
 @endsection

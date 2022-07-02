@@ -26,7 +26,7 @@ class MessageFactory extends Factory
     public function definition()
     {
         /** @var User $user */
-        $user = Auth::user();
+        $user = User::first();
 
         /** @var Subtopic $subtopic */
         $subtopic = Subtopic::all()->random();

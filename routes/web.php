@@ -24,6 +24,17 @@ Route::resource('topics', 'TopicsController');
 Route::resource('subtopics', 'SubtopicsController');
 Route::resource('messages', 'MessagesController');
 
+Route::get('/topic/{id}/subtopic/create', 'SubtopicsController@create');
+Route::get('/topic/{id1}/subtopic/{id2}/message/create', 'MessagesController@create');
+Route::get('/topic/{id1}/subtopic/{id2}/message/{id3}/edit', 'MessagesController@edit');
+
+
+Route::post('/topic/{id}/subtopic', 'SubtopicsController@store');
+Route::delete('/topic/{id1}/subtopic/{id2}', 'SubtopicsController@destroy');
+Route::post('/topic/{id1}/subtopic/{id2}/message', 'MessagesController@store');
+Route::delete('/topic/{id1}/subtopic/{id2}/message/{id3}', 'MessagesController@destroy');
+Route::patch('/topic/{id1}/subtopic/{id2}/message/{id3}', 'MessagesController@update');
+
 // route conventions: photos.index, photos.create
 // you should use regex for route matching
 

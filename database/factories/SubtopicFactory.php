@@ -25,7 +25,7 @@ class SubtopicFactory extends Factory
     public function definition(): array
     {
         /** @var User $user */
-        $user = Auth::user();
+        $user = User::first();
         return [
             'user_id' => $user->id,
             'title' => $this->faker->sentence,

@@ -34,16 +34,15 @@ class MessagesController extends Controller
         return view('message', compact('topic','subtopic', 'action'));
     }
 
-    public function store(Request $request)
+    public function store($id1, $id2, Request $request)
     {
         request()->validate([
             'body' => 'required',
-            'subtopic_id' => 'required'
         ]);
         /** @var User $user */
         $user = Auth::user();
 
-        $subtopic = Subtopic::find($request->get('subtopic_id'));
+        $subtopic = Subtopic::find($id2);
         $message = new Message();
 
         $message->body = request('body');
@@ -90,7 +89,7 @@ class MessagesController extends Controller
         ]);
         $message->body = request('body');
         $message->save();
-        return redirect("/topic/$id1/subtopic/$id2/message");
+        return redirect("subtopics/$id2");
     }
 
     /**
@@ -103,6 +102,6 @@ class MessagesController extends Controller
     {
         $message = Message::find($id3);
         $message->delete();
-        return redirect("/topic/$id1/subtopic/$id2/message");
+        return redirect("/subtopics/$id2");
     }
 }

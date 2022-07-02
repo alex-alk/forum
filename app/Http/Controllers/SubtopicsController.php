@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Subtopic;
 use App\Models\Topic;
+use App\Models\Message;
 
 class SubtopicsController extends Controller
 {
@@ -49,7 +50,7 @@ class SubtopicsController extends Controller
         $subtopic->title = request('title');
         $subtopic->user_id = Auth::User()->id;
         $topic->subtopics()->save($subtopic);
-        return redirect("/topic/$id");
+        return redirect("/topics/$id");
 
     }
 
@@ -90,12 +91,13 @@ class SubtopicsController extends Controller
     public function destroy($id1, $id2)
     {
         $subtopic = Subtopic::find($id2);
+        Message::where('subtopic_id', $id2)->delete();
         try {
             $subtopic->delete();
         } catch (\Exception $e){
             dd("eroare: nu se poate șterge");
         }
-        return redirect("/topic/$id1");
+        return redirect("/topics/$id1");
         
     }   
 }

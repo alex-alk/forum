@@ -107,6 +107,7 @@ class TopicsController extends Controller
     public function destroy($id)
     {
         $topic = Topic::find($id);
+        Subtopic::where('topic_id', $id)->delete();
         try {
             $topic->delete();
         } catch (\Exception $e) {

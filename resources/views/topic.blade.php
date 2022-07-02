@@ -5,7 +5,7 @@
 @section('content')
 
 	@if(isset($topic))
-		<form action="/topic/{{ $topic->id }}" method="POST" class="form">
+		<form action="/topics/{{ $topic->id }}" method="POST" class="form">
 			@csrf
 			@method('PATCH')
 			<div class="form-group">
@@ -15,7 +15,7 @@
 			<button type="submit" class="btn btn-primary">Edit</button>
 		</form>
 	@else
-		<form action="/topic" method="POST" class="form">
+		<form action="/topics" method="POST" class="form">
 			@csrf
 			<div class="form-group">
 				<label for="title">Topic title: </label>

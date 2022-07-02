@@ -26,14 +26,14 @@ class ParticipateInForumTest extends TestCase
         $user = User::factory()->create();
         $this->be($user);
 
-        Topic::factory()->create();
+        $topic = Topic::factory()->create();
         /** @var Subtopic $subtopic */
         $subtopic = Subtopic::factory()->create();
 
         /** @var Message $message */
         $message = Message::factory()->make(); // just in memory
 
-        $this->post(route('messages.store'), $message->toArray());
+        $this->post("/topic/{$topic->id}/subtopic/{$subtopic->id}/message", $message->toArray());
 
         $this->get(route('subtopics.show', [$subtopic->id]))
             ->assertSee($message->body);

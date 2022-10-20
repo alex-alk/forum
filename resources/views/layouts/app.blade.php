@@ -11,8 +11,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
-    <script>tinymce.init({ selector:'textarea' });</script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

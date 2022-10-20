@@ -16,7 +16,7 @@
 					</div>
 				</td>
 				<td class="body">
-					{!! $message->body !!}
+					{!! nl2br(e($message->body)) !!}
 					@if(Illuminate\Support\Facades\Auth::check() &&  
 	                    Illuminate\Support\Facades\Auth::user()->name == 'admin') 
 						<form action="/topic/{{ $subtopic->topic->id }}/subtopic/{{ $subtopic->id }}/message/{{ $message->id }}" method="POST">
@@ -45,8 +45,6 @@
 	@endsection
 @elseif( $action == 'create')
 	@section('content')
-	    <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
-	    <script>tinymce.init({ selector:'textarea' });</script>
 		<form action="/topic/{{ $subtopic->topic->id }}/subtopic/{{ $subtopic->id }}/message" method="POST" class="form">
 		@csrf
 		<div class="form-group">

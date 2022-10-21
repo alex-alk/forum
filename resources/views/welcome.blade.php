@@ -4,7 +4,7 @@
 
 @section('content')
     <aside>
-        <p>Recent subjects</p>
+        <p id="a">Recent subjects</p>
     @foreach($recentSubtopics as $recentSubtopic)
         <p><a href="{{ route('subtopics.show', [$recentSubtopic->id]) }}">{{ $recentSubtopic->title }}</a></p>
     @endforeach
@@ -36,4 +36,8 @@
         Illuminate\Support\Facades\Auth::user()->name == 'admin')
         <div class="create-link"><a href="/topics/create" class="btn btn-primary">Create topic</a></div>
     @endif
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/welcome.js') }}" defer></script>
 @endsection
